@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smarthome_app/remote.dart';
+import 'package:smarthome_app/screen/device_widget.dart';
 import 'dart:async';
 
 import 'package:smarthome_app/screen/home.dart';

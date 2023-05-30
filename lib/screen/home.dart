@@ -105,11 +105,11 @@ class _HomeState extends State<Home> {
             width: 470,
             height: 106,
             decoration: BoxDecoration(
-              color: Color(0XFF249a77),
+              color: Colors.amber,
               borderRadius: BorderRadius.circular(25),
-              boxShadow: const [
-                BoxShadow(color: Colors.grey, spreadRadius: 5, blurRadius: 5),
-              ],
+              // boxShadow: const [
+              //   BoxShadow(color: Colors.grey, spreadRadius: 5, blurRadius: 5),
+              // ],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

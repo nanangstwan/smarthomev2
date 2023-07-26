@@ -1,9 +1,8 @@
 import 'dart:async';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:smarthome_app/screen/device_widget.dart';
-
-
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -129,17 +128,37 @@ class _HomeState extends State<Home> {
                       Container(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               'TEMPERATURE',
                               style:
                                   TextStyle(fontSize: 17, color: Colors.white),
                             ),
-                            Text(
-                              '24°',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
-                            ),
+                            StreamBuilder(
+                                stream: FirebaseDatabase.instance
+                                    .ref()
+                                    .child('temperature')
+                                    .onValue,
+                                builder: ((context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    final dataTemp =
+                                        snapshot.data as DatabaseEvent?;
+                                    final Temp =
+                                        dataTemp?.snapshot.value?.toString() ??
+                                            'ERROR';
+                                    return Text(
+                                      Temp,
+                                      style: const TextStyle(
+                                          fontSize: 20, color: Colors.white),
+                                    );
+                                  }
+                                  return CircularProgressIndicator();
+                                })),
+                            // Text(
+                            //   '24°',
+                            //   style:
+                            //       TextStyle(fontSize: 20, color: Colors.white),
+                            // ),
                           ],
                         ),
                       ),

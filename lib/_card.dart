@@ -25,21 +25,10 @@ class _MyCardState extends State<MyCard> {
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(25),
         decoration: BoxDecoration(
-          // image: DecorationImage(
-          //     image: AssetImage(
-          //       widget.icon,
-          //     ),
-          //     fit: BoxFit.cover),
+
           color: Colors.white,
           // const Color(0XFF249a77),
           borderRadius: BorderRadius.circular(30),
-          // boxShadow: const [
-          //   BoxShadow(
-          //     color: Colors.black,
-          //     blurRadius: 5,
-          //     // offset: Offset(1.0, 3.0),
-          //   ),
-          // ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,11 +183,12 @@ class LampCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Switch(activeColor: Colors.amber,
+                      Switch(
+                        activeColor: Colors.amber,
                         value: device.status == "HIDUP",
                         onChanged: device.mode == IotMode.auto
                             ? null
-                            : (v) {
+                            : (value) {
                                 device.onSwitch();
                               },
                       )
@@ -231,7 +221,7 @@ class ACCARD extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
-      color: device.status == "Off" ? Colors.white30 :Colors.black45  ,
+      color: device.status == "Off" ? Colors.white30 : Colors.black45,
       child: !isLoading
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -270,30 +260,6 @@ class ACCARD extends StatelessWidget {
                                 device.onSwitch();
                               },
                       )
-                      // InkWell(
-                      //   onTap: () {
-                      //     showModalBottomSheet(
-                      //       context: context,
-                      //       clipBehavior: Clip.hardEdge,
-                      //       shape: const RoundedRectangleBorder(
-                      //         borderRadius: BorderRadius.only(
-                      //             topLeft: Radius.circular(10),
-                      //             topRight: Radius.circular(10)),
-                      //       ),
-                      //       builder: (context) => ModeModal(
-                      //         mode: device.mode.name,
-                      //         onModeChannge: onModeChannge,
-                      //       ),
-                      //     );
-                      //   },
-                      //   child: Text(
-                      //     device.mode.name.toUpperCase(),
-                      //     style: const TextStyle(
-                      //       fontWeight: FontWeight.bold,
-                      //       color: Colors.white,
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
@@ -380,7 +346,7 @@ class ACCARD extends StatelessWidget {
                                                 .update({
                                               "acTemp": saksae - 1,
                                               'acTempStatus': true,
-                                              'p': 0
+                                              'antiLooping': true
                                             });
                                           },
                                           child: Container(
@@ -426,7 +392,7 @@ class ACCARD extends StatelessWidget {
                                                 .update({
                                               "acTemp": saksae + 1,
                                               'acTempStatus': true,
-                                              'p': 0
+                                              'antiLooping': true
                                             });
                                           },
                                           child: Container(

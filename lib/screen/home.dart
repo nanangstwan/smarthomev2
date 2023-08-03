@@ -54,6 +54,7 @@ class _HomeState extends State<Home> {
           Container(
             margin: const EdgeInsets.only(left: 50, top: 100, right: 50),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
@@ -70,17 +71,16 @@ class _HomeState extends State<Home> {
                       'NANANG SETIAWAN',
                       style: TextStyle(
                         fontSize: 25,
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.w400,
-                        fontFamily: 'FredokaOne',
                       ),
                     ),
-                    SizedBox(
-                      height: 5,
+                    const SizedBox(
+                      height: 30,
                     ),
                     Text(
                       _datestring,
-                      style: const TextStyle(fontSize: 15),
+                      style: const TextStyle(fontSize: 15, color: Colors.white),
                     ),
                   ],
                 ),
@@ -90,14 +90,14 @@ class _HomeState extends State<Home> {
                 Column(children: [
                   Text(
                     _timeString,
-                    style: const TextStyle(fontSize: 30),
+                    style: const TextStyle(fontSize: 30, color: Colors.white),
                   ),
                 ]),
               ],
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 10,
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -135,30 +135,26 @@ class _HomeState extends State<Home> {
                                   TextStyle(fontSize: 17, color: Colors.white),
                             ),
                             StreamBuilder(
-                                stream: FirebaseDatabase.instance
-                                    .ref()
-                                    .child('temperature')
-                                    .onValue,
-                                builder: ((context, snapshot) {
-                                  if (snapshot.hasData) {
-                                    final dataTemp =
-                                        snapshot.data as DatabaseEvent?;
-                                    final Temp =
-                                        dataTemp?.snapshot.value?.toString() ??
-                                            'ERROR';
-                                    return Text(
-                                      Temp,
-                                      style: const TextStyle(
-                                          fontSize: 20, color: Colors.white),
-                                    );
-                                  }
-                                  return CircularProgressIndicator();
-                                })),
-                            // Text(
-                            //   '24°',
-                            //   style:
-                            //       TextStyle(fontSize: 20, color: Colors.white),
-                            // ),
+                              stream: FirebaseDatabase.instance
+                                  .ref()
+                                  .child('temperature')
+                                  .onValue,
+                              builder: ((context, snapshot) {
+                                if (snapshot.hasData) {
+                                  final dataTemp =
+                                      snapshot.data as DatabaseEvent?;
+                                  final Temp =
+                                      dataTemp?.snapshot.value?.toString() ??
+                                          'ERROR';
+                                  return Text(
+                                    Temp,
+                                    style: const TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  );
+                                }
+                                return CircularProgressIndicator();
+                              }),
+                            ),
                           ],
                         ),
                       ),

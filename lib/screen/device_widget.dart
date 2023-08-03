@@ -39,9 +39,9 @@ class _DeviceWidgetState extends State<DeviceWidget> {
 
                       final device = DeviceIOT(
                         alias: "",
-                        icon: Icons.wc,
+                        icon: Icons.view_column_sharp,
 
-                        location: "Kamar Mandi 1",
+                        location: "Koridor",
                         mode: modeLamp1 == 'remote'
                             ? IotMode.remote
                             : IotMode.auto,
@@ -99,7 +99,7 @@ class _DeviceWidgetState extends State<DeviceWidget> {
                             int targetStatus = statusAc == '1' ? 0 : 1;
                             FirebaseDatabase.instance
                                 .ref()
-                                .update({'statusAc': targetStatus, 'p': 0});
+                                .update({'statusAc': targetStatus, 'antiLooping': true});
                           }),
                         );
                         return ACCARD(isLoading: false, device: device);

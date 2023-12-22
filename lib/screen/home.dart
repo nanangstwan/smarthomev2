@@ -132,7 +132,7 @@ class _HomeState extends State<Home> {
                             const Text(
                               'TEMPERATURE',
                               style:
-                                  TextStyle(fontSize: 17, color: Colors.white),
+                                  TextStyle(fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
                             ),
                             StreamBuilder(
                               stream: FirebaseDatabase.instance
@@ -147,9 +147,9 @@ class _HomeState extends State<Home> {
                                       dataTemp?.snapshot.value?.toString() ??
                                           'ERROR';
                                   return Text(
-                                    Temp,
+                                    Temp+ '\u00b0C',
                                     style: const TextStyle(
-                                        fontSize: 20, color: Colors.white),
+                                        fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
                                   );
                                 }
                                 return CircularProgressIndicator();
@@ -161,36 +161,32 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                        'assets/picture/icons8-humidity-64.png',
-                        height: 30,
-                        width: 30,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(width: 10),
-                      Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text(
-                              'HUMIDITY',
-                              style:
-                                  TextStyle(fontSize: 17, color: Colors.white),
-                            ),
-                            Text(
-                              '70%',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.white),
-                            ),
-                          ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      'assets/picture/icons8-humidity-64.png',
+                      height: 30,
+                      width: 30,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
+                          'HUMIDITY',
+                          style:
+                              TextStyle(fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                    ],
-                  ),
+                        Text(
+                          '70%',
+                          style:
+                              TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),

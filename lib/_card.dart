@@ -185,7 +185,7 @@ class LampCard extends StatelessWidget {
                       ),
                       Switch(
                         activeColor: Colors.amber,
-                        value: device.status == "HIDUP",
+                        value: device.status != "HIDUP",
                         onChanged: device.mode == IotMode.auto
                             ? null
                             : (value) {
@@ -465,12 +465,13 @@ class _ModeModalState extends State<ModeModal> {
             const Text(
               "Mode",
               style: TextStyle(
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
             ),
             ListTile(
-              title: const Text("Remote"),
+              title: const Text("Remote", style: TextStyle(color: Colors.white),),
               trailing: mode == 'remote' ? const Icon(Icons.check) : null,
               onTap: () {
                 setState(() {
@@ -479,7 +480,7 @@ class _ModeModalState extends State<ModeModal> {
               },
             ),
             ListTile(
-              title: const Text("Automatic"),
+              title: const Text("Automatic", style: TextStyle(color: Colors.white),),
               trailing: mode == 'auto' ? const Icon(Icons.check) : null,
               onTap: () {
                 setState(() {

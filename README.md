@@ -1,11 +1,19 @@
-USER INTERFACE WHEN THE DEVICE IS SWITCHED ON
+# USER INTERFACE WHEN THE DEVICE IS SWITCHED ON
+
 ![alt text](https://github.com/nanangstwan/smarthomev2/blob/master/lib/image_UI/2.jpg?raw=true)
 
-USER INTERFACE WHEN THE DEVICE IS SWITCHED OFF
+
+# USER INTERFACE WHEN THE DEVICE IS SWITCHED OFF
+
 ![alt text](https://github.com/nanangstwan/smarthomev2/blob/master/lib/image_UI/3.jpg?raw=true)
 
-MODE SWITCHING ON THE LAMP
+
+
+# MODE SWITCHING ON THE LAMP
+
 ![alt text](https://github.com/nanangstwan/smarthomev2/blob/master/lib/image_UI/1.jpg?raw=true)
+
+
 
 # smarthome_app
 
